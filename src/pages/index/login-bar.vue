@@ -2,8 +2,12 @@
     <div class="login-bar">
         <div class="bg"></div>
         <div class="guide">
-            <div class="title">请登录你的Steam</div>
-            <div class="subtitle">只需要使用您的一个账户并开始获得顶级饰品</div>
+            <div class="title">
+                请登录你的Steam
+            </div>
+            <div class="subtitle">
+                只需要使用您的一个账户并开始获得顶级饰品
+            </div>
         </div>
     </div>
 </template>
@@ -11,14 +15,14 @@
 import { reactive, toRefs, computed, watch } from '@vue/composition-api';
 import { fetchGoods } from '@/service/index';
 export default {
-  name: 'LoginBar',
-  setup(props, { root }) {
-    const state = reactive({
-    });
-    return {
-      ...toRefs(state),
-    };
-  },
+    name: 'login-bar',
+    setup(props, { root }) {
+        const state = reactive({
+        });
+        return {
+            ...toRefs(state),
+        };
+    },
 };
 </script>
 <style lang="less" scoped>

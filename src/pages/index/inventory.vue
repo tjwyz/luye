@@ -23,50 +23,50 @@
 <script>
 import { reactive, toRefs, computed, watch } from '@vue/composition-api';
 export default {
-  name: 'Header',
-  setup(props, { root }) {
-    const state = reactive({
-        navs: [
-            {
-                text: 'Blog',
-                url: '/blog',
-            },
-            {
-                text: 'Blog1',
-                url: '/blog1',
-                highlight: true,
-            },
-            {
-                text: 'Blog2',
-                url: '/blog2',
-            },
-            {
-                text: 'Blog3',
-                url: '/blog3',
+    name: 'header',
+    setup(props, { root }) {
+        const state = reactive({
+            navs: [
+                {
+                    text: 'Blog',
+                    url: '/blog',
+                },
+                {
+                    text: 'Blog1',
+                    url: '/blog1',
+                    highlight: true,
+                },
+                {
+                    text: 'Blog2',
+                    url: '/blog2',
+                },
+                {
+                    text: 'Blog3',
+                    url: '/blog3',
+                },
+            ],
+            balance: '0.00',
+            // 片段
+            segments: [
+            ],
+        });
+        const changeSeekStatus = function (value) {
+            state.seeked = value;
+        };
+        watch(
+            () => state.now,
+            () => {
+                state.timePercent = state.now / state.total * 100;
             }
-        ],
-        balance: '0.00',
-        // 片段
-        segments: [
-        ],
-    });
-    const changeSeekStatus = function (value) {
-      state.seeked = value;
-    };
-    watch(
-      () => state.now,
-      () => {
-        state.timePercent = (state.now / state.total) * 100;
-      }
-    );
-    // root.$nextTick(() => {
-    // });
-    window.state = state;
-    return {
-      ...toRefs(state),
-      changeSeekStatus,
-    };
-  },
+        );
+        // root.$nextTick(() => {
+        // });
+        window.state = state;
+        return {
+            ...toRefs(state),
+            changeSeekStatus,
+        };
+    },
 };
 </script>
 <style lang="less">

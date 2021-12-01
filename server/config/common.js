@@ -5,7 +5,7 @@ const cdnPrefix = process.env.cdn_prefix || '//static.yximgs.com/';
 
 module.exports = {
     // 服务端口
-    port: 8080,
+    port: 3389,
 
     // 项目根目录位置
     appPath: path.join(__dirname, '../app'),

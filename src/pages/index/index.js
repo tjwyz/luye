@@ -11,9 +11,9 @@ Vue.use(Element);
 import './index.css';
 
 new Vue({
-  el: '#app',
-  components: {
-    App,
-  },
-  render: c => c(App),
+    el: '#app',
+    components: {
+        App,
+    },
+    render: c => c(App),
 });

@@ -1,19 +1,21 @@
 <template>
-  <div class="bg">
-    <Header></Header>
-    <div class="title">官方商城</div>
-    <div class="tab-bar">
-      <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="CSGO" name="first"></el-tab-pane>
-        <el-tab-pane label="DOTA" name="second"></el-tab-pane>
-      </el-tabs>
-      <el-input v-model="input" placeholder="请输入内容"></el-input>
-    </div>
+    <div class="bg">
+        <Header></Header>
+        <div class="title">
+            官方商城
+        </div>
+        <div class="tab-bar">
+            <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tab-pane label="CSGO" name="first"></el-tab-pane>
+                <el-tab-pane label="DOTA" name="second"></el-tab-pane>
+            </el-tabs>
+            <el-input v-model="input" placeholder="请输入内容"></el-input>
+        </div>
 
-    <goods-list></goods-list>
-    <login-bar></login-bar>
-    <footer-luye></footer-luye>
-  </div>
+        <goods-list></goods-list>
+        <login-bar></login-bar>
+        <footer-luye></footer-luye>
+    </div>
 </template>
 
 <script>
@@ -23,43 +25,41 @@ import { reactive, toRefs, computed, watch } from '@vue/composition-api';
 import Header from './header.vue';
 import GoodsList from './goods-list.vue';
 import LoginBar from './login-bar.vue';
-import Inventory from './inventory.vue';
 import FooterLuye from './footer-luye.vue';
 export default {
-  name: 'App',
-  components: {
-    Header,
-    Inventory,
-    GoodsList,
-    LoginBar,
-    FooterLuye,
-  },
-  setup(props, { root }) {
-    const state = reactive({
-      activeName: 'first',
-      input: '',
-    });
-    const changeSeekStatus = function (value) {
-      state.seeked = value;
-    };
-    const handleClick = function(val) {
+    name: 'app',
+    components: {
+        Header,
+        GoodsList,
+        LoginBar,
+        FooterLuye,
+    },
+    setup(props, { root }) {
+        const state = reactive({
+            activeName: 'first',
+            input: '',
+        });
+        const changeSeekStatus = function (value) {
+            state.seeked = value;
+        };
+        const handleClick = function (val) {
 
-    }
-    watch(
-      () => state.now,
-      () => {
-        state.timePercent = (state.now / state.total) * 100;
-      }
-    );
-    // root.$nextTick(() => {
-    // });
-    window.state = state;
-    return {
-      ...toRefs(state),
-      changeSeekStatus,
-      handleClick,
-    };
-  },
+        };
+        watch(
+            () => state.now,
+            () => {
+                state.timePercent = state.now / state.total * 100;
+            }
+        );
+        // root.$nextTick(() => {
+        // });
+        window.state = state;
+        return {
+            ...toRefs(state),
+            changeSeekStatus,
+            handleClick,
+        };
+    },
 };
 </script>
 

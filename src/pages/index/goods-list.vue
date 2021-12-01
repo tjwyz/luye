@@ -1,30 +1,40 @@
 <template>
     <div>
         <div class="pagination-bar">
-            <div class="total">发现{{total}}件物品</div>
+            <div class="total">
+                发现{{total}}件物品
+            </div>
             <div class="pagination">
                 <el-pagination
-                  background
-                  layout="prev, pager, next"
-                  :page-size="12"
-                  @current-change="handleCurrentChange"
-                  :total="total">
+                    background
+                    layout="prev, pager, next"
+                    :page-size="12"
+                    @current-change="handleCurrentChange"
+                    :total="total"
+                >
                 </el-pagination>
             </div>
         </div>
         <div class="goods">
             <div class="goods-item" v-for="item in goods">
                 <div class="goods-item-container">
-                    <div class="goods-item-price">$ {{item.price}}</div>
+                    <div class="goods-item-price">
+                        $ {{item.price}}
+                    </div>
                     <!-- :style="{'background-image': `url(${item.src})`}" -->
                     <div class="goods-item-pic"></div>
-                    <div class="goods-item-name">{{item.name}}</div>
-                    <div class="goods-item-tag">{{item.tag}}</div>
-                    <div class="goods-item-level">{{item.level}}</div>
+                    <div class="goods-item-name">
+                        {{item.name}}
+                    </div>
+                    <div class="goods-item-tag">
+                        {{item.tag}}
+                    </div>
+                    <div class="goods-item-level">
+                        {{item.level}}
+                    </div>
                 </div>
                 <div class="goods-item-mask"></div>
             </div>
-
         </div>
     </div>
 </template>
@@ -32,35 +42,35 @@
 import { reactive, toRefs, computed, watch } from '@vue/composition-api';
 import { fetchGoods } from '@/service/index';
 export default {
-  name: 'Header',
-  setup(props, { root }) {
-    const state = reactive({
-        pageNo: 1,
-        goods: [],
-        total: 0,
-    });
-
-    const fetchData = () => {
-        fetchGoods({
-          pageNo: state.pageNo,
-        }).then((res) => {
-            state.goods = res.goods;
-            state.pageNo = res.pageNo;
-            state.total = res.total;
+    name: 'header',
+    setup(props, { root }) {
+        const state = reactive({
+            pageNo: 1,
+            goods: [],
+            total: 0,
         });
-    }
-    fetchData();
 
-
-    const handleCurrentChange = (val) => {
-        state.pageNo = val;
+        const fetchData = () => {
+            fetchGoods({
+                pageNo: state.pageNo,
+            }).then(res => {
+                state.goods = res.goods;
+                state.pageNo = res.pageNo;
+                state.total = res.total;
+            });
+        };
         fetchData();
-    };
-    return {
-      ...toRefs(state),
-      handleCurrentChange,
-    };
-  },
+
+
+        const handleCurrentChange = val => {
+            state.pageNo = val;
+            fetchData();
+        };
+        return {
+            ...toRefs(state),
+            handleCurrentChange,
+        };
+    },
 };
 </script>
 <style lang="less" scoped>

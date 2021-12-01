@@ -1,8 +1,8 @@
 import Axios from 'axios';
 
 const defaultOption = {
-  timeout: 10 * 1000,
-  withCredentials: true,
+    timeout: 10 * 1000,
+    withCredentials: true,
 };
 
 export const axios = Axios.create(defaultOption);

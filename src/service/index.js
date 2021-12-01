@@ -1,39 +1,39 @@
 import { axios } from '@/service/axios';
 
 const fetchGoods = async function (data) {
-  const ret = await axios({
-    method: 'post',
-    url: '/goods/list',
-    data,
-    strict: true,
-  });
+    const ret = await axios({
+        method: 'post',
+        url: '/goods/list',
+        data,
+        strict: true,
+    });
 
-  return ret;
+    return ret;
 };
 
 const retryCombine = async function (data) {
-  const ret = await axios({
-    method: 'get',
-    url: '/combine/retry',
-    params: data,
-  });
+    const ret = await axios({
+        method: 'get',
+        url: '/combine/retry',
+        params: data,
+    });
 
-  return ret;
+    return ret;
 };
 
 const fetchList = async function (data) {
-  const ret = await axios({
-    method: 'post',
-    url: '/db/select',
-    data,
-  });
+    const ret = await axios({
+        method: 'post',
+        url: '/db/select',
+        data,
+    });
 
-  return ret;
+    return ret;
 };
 
 
 export {
-  fetchGoods,
-  retryCombine,
-  fetchList,
+    fetchGoods,
+    retryCombine,
+    fetchList,
 };
