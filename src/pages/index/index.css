@@ -1,0 +1,18 @@
+html,
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,SFProDisplay,SF Pro Display,Inter,Roboto,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    overflow-x: hidden;
+    background: #080d16;
+}
+a {
+    color: #30da30;
+    text-decoration: none;
+    background-color: transparent;
+}

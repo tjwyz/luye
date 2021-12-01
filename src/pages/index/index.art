@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+    <head>
+        {{include '../../common/widgets/h5HeadMeta.art'}}
+        <title> frontend-luye </title>
+    </head>
+    <link data-n-head="ssr" rel="stylesheet" href="https://skincashier.com/font/skin-cashier/style.css">
+    <link data-n-head="ssr" rel="stylesheet" href="https://skincashier.com/font/tt-mussels/stylesheet.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+    <body>
+        <div id="app"></div>
+    </body>
+</html>
